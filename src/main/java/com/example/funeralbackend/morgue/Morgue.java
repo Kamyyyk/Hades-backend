@@ -34,7 +34,7 @@ public class Morgue {
 
     @Override
     public int hashCode() {
-        return getClass().hashCode();
+        return Objects.hash(id, name, surname, dateArrived, sex, birthDate, deathDate);
     }
 }
 

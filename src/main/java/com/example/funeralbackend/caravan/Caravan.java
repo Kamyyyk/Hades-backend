@@ -1,5 +1,6 @@
 package com.example.funeralbackend.caravan;
 
+import com.example.funeralbackend.driver.Driver;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.Hibernate;
@@ -22,6 +23,9 @@ public class Caravan {
     private String brand;
     private String model;
 
+    @ManyToOne
+    @JoinColumn(name = "driver_id")
+    private Driver driver;
 
 
     @Override
