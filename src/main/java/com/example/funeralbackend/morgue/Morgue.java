@@ -17,11 +17,17 @@ public class Morgue {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(nullable = false)
     private String name;
+    @Column(nullable = false)
     private String surname;
+    @Column(nullable = false)
     private Date dateArrived;
+    @Column(nullable = false)
     private String sex;
+    @Column(nullable = false)
     private Date birthDate;
+    @Column(nullable = false)
     private Date deathDate;
 
     @Override

@@ -21,8 +21,11 @@ public class Funeral {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @Column(nullable = false)
     private Date funeralDate;
+    @Column(nullable = false)
     private Status status;
+    @Column(nullable = false)
     private double price;
 
     @ManyToOne

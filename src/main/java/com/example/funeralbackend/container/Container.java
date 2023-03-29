@@ -18,7 +18,9 @@ public class Container {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @Column(nullable = false)
     private String containerName;
+    @Column(nullable = false)
     private containerType containerType;
 
     @Override
