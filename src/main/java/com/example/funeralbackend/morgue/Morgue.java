@@ -1,10 +1,11 @@
 package com.example.funeralbackend.morgue;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.AssertTrue;
 import lombok.*;
 import org.hibernate.Hibernate;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.Objects;
 
 @Entity
@@ -22,13 +23,19 @@ public class Morgue {
     @Column(nullable = false)
     private String surname;
     @Column(nullable = false)
-    private Date dateArrived;
+    private LocalDate dateArrived;
     @Column(nullable = false)
     private String sex;
     @Column(nullable = false)
-    private Date birthDate;
+    private LocalDate birthDate;
     @Column(nullable = false)
-    private Date deathDate;
+
+    private LocalDate deathDate;
+
+    @AssertTrue(message = "Death date must be before arrival date")
+    public boolean isDeceasedArrivalAfterDeathDate() {
+        return dateArrived.isAfter(deathDate);
+    }
 
     @Override
     public boolean equals(Object o) {
