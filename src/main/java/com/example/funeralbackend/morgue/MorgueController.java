@@ -2,6 +2,7 @@ package com.example.funeralbackend.morgue;
 
 import com.example.funeralbackend.morgue.errors.MorgueErrorResponse;
 import com.example.funeralbackend.morgue.errors.MorgueNotFoundException;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 import java.util.List;
+import java.util.Objects;
 
 @RestController
 @RequestMapping("/api/morgue")
@@ -24,8 +26,13 @@ public class MorgueController {
     }
 
     @GetMapping("/{id}")
-    public Morgue getDeceased(@PathVariable Long id) {
-        return morgueService.getDeceasedById(id);
+    public ResponseEntity<Morgue> getDeceased(@PathVariable Long id) {
+        try {
+            Morgue deceased = morgueService.getDeceasedById(id);
+            return ResponseEntity.ok(deceased);
+        } catch (EntityNotFoundException ex) {
+            throw new MorgueNotFoundException("Deceased id not found:" + id);
+        }
     }
 
     @PostMapping
