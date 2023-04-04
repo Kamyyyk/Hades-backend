@@ -1,6 +1,6 @@
 package com.example.funeralbackend.morgue;
 
-import jakarta.persistence.EntityNotFoundException;
+import com.example.funeralbackend.morgue.errors.MorgueNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
@@ -23,7 +23,7 @@ public class MorgueService {
 
     public Morgue getDeceasedById(Long id) {
         return morgueRepository.findById(id)
-                .orElseThrow(() -> new EntityNotFoundException("Cannot find deceased by id:" + id));
+                .orElseThrow(() -> new MorgueNotFoundException("Cannot find deceased by id: " + id));
     }
 
     public Morgue editDeceasedById(Long id, Morgue morgue) {
