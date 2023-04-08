@@ -21,11 +21,11 @@ public class DriverService {
         return driverRepository.save(driver);
     }
 
-    public Driver getDriver(long id) {
+    public Driver getDriver(Long id) {
         return driverRepository.findById(id).orElseThrow(() -> new DriverNotFoundException("Cannot find driver with id: " + id));
     }
 
-    public Driver updateDriver(long id, Driver driver) {
+    public Driver updateDriver(Long id, Driver driver) {
         Driver existingDriver = getDriver(id);
         existingDriver.setName(driver.getName());
         existingDriver.setSurname(driver.getSurname());
