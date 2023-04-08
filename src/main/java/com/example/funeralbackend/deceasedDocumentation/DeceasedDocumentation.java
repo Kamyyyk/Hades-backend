@@ -1,4 +1,4 @@
-package com.example.funeralbackend.documentation;
+package com.example.funeralbackend.deceasedDocumentation;
 
 import com.example.funeralbackend.morgue.Morgue;
 import jakarta.persistence.*;
@@ -15,7 +15,7 @@ import java.util.Objects;
 @Setter
 @RequiredArgsConstructor
 @ToString
-public class Documentation {
+public class DeceasedDocumentation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -30,7 +30,7 @@ public class Documentation {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Documentation that = (Documentation) o;
+        DeceasedDocumentation that = (DeceasedDocumentation) o;
         return id == that.id && Objects.equals(name, that.name) && Objects.equals(morgue, that.morgue);
     }
 
