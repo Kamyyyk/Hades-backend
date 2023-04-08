@@ -15,7 +15,7 @@ import java.util.Objects;
 @RequiredArgsConstructor
 public class Caravan {
 
-    //
+    //komentarz
 
 
     @Id
