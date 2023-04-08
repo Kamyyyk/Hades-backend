@@ -15,9 +15,6 @@ import java.util.Objects;
 @RequiredArgsConstructor
 public class Caravan {
 
-    //komentarzaaaaa
-
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
