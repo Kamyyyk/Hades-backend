@@ -15,8 +15,6 @@ import java.util.Objects;
 @RequiredArgsConstructor
 public class Caravan {
 
-    //
-
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
