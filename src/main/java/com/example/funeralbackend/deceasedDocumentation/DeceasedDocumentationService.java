@@ -20,4 +20,8 @@ public class DeceasedDocumentationService {
     }
 
 
+    public void deleteDeceasedDocumentation(Long id) {
+        DeceasedDocumentation existedDeceasedDocumentation = getDeceasedDocumentation(id);
+        documentationRepository.delete(existedDeceasedDocumentation);
+    }
 }
