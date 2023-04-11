@@ -36,5 +36,4 @@ public class DriverService {
         Driver existingDriver = getDriver(id);
         driverRepository.delete(existingDriver);
     }
-
 }

@@ -10,7 +10,7 @@ import lombok.ToString;
 import java.util.Objects;
 
 @Entity
-@Table(name = "documentation")
+@Table(name = "deceased_documentation")
 @Getter
 @Setter
 @RequiredArgsConstructor

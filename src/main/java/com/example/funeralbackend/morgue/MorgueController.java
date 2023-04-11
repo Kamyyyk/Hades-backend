@@ -1,10 +1,8 @@
 package com.example.funeralbackend.morgue;
 
-import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import java.net.URI;
 import java.util.List;
 
 @RestController
@@ -26,9 +24,8 @@ public class MorgueController {
     }
 
     @PostMapping
-    public ResponseEntity<Morgue> createDeceased(@Validated @RequestBody Morgue morgue) {
-        Morgue createdDeceased = morgueService.createDeceased(morgue);
-        return ResponseEntity.created(URI.create("/api/morgue/" + morgue.getId())).body(createdDeceased);
+    public Morgue createDeceased(@Validated @RequestBody Morgue morgue) {
+        return morgueService.createDeceased(morgue);
     }
 
     @PutMapping("/{id}")
