@@ -1,9 +1,6 @@
 package com.example.funeralbackend.driver;
 
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-
 import java.util.List;
 
 @RestController
@@ -21,12 +18,8 @@ public class DriverController {
     }
 
     @PostMapping
-    public ResponseEntity<Driver> createDriver(@RequestBody Driver driver) {
-        driverService.createDriver(driver);
-        Driver cretedDriver = driverService.createDriver(driver);
-        return ResponseEntity.created(
-                ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
-                        .buildAndExpand(cretedDriver.getId()).toUri()).body(cretedDriver);
+    public Driver createDriver(@RequestBody Driver driver) {
+       return driverService.createDriver(driver);
     }
 
     @GetMapping("/{id}")
