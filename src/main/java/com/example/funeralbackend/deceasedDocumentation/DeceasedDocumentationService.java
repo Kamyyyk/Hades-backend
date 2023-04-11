@@ -1,5 +1,6 @@
 package com.example.funeralbackend.deceasedDocumentation;
 
+import com.example.funeralbackend.errors.NotFoundException;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
@@ -19,7 +20,7 @@ public class DeceasedDocumentationService {
     }
 
     public DeceasedDocumentation getDeceasedDocumentation(Long id) {
-        return deceasedDocumentationRepository.findById(id).orElseThrow();
+        return deceasedDocumentationRepository.findById(id).orElseThrow(() -> new NotFoundException("cannot find deceasedDocumentation with id: " + id));
     }
 
     public DeceasedDocumentation createDeceasedDocumentation(DeceasedDocumentation deceasedDocumentation) {

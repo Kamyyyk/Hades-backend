@@ -1,4 +1,4 @@
-package com.example.funeralbackend.placeOnCementary;
+package com.example.funeralbackend.placeOnCemetery;
 
 import jakarta.persistence.*;
 import lombok.Getter;

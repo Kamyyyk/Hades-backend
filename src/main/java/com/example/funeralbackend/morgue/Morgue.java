@@ -1,5 +1,6 @@
 package com.example.funeralbackend.morgue;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.AssertTrue;
 import lombok.*;
@@ -32,7 +33,8 @@ public class Morgue {
 
     private LocalDate deathDate;
 
-    @AssertTrue(message = "Death date must be before arrival date")
+    @AssertTrue(message = "Death" + "date must be before arrival date")
+    @JsonIgnore
     public boolean isDeceasedArrivalAfterDeathDate() {
         return dateArrived.isAfter(deathDate);
     }
