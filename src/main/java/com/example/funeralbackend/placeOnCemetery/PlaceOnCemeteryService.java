@@ -31,7 +31,6 @@ public class PlaceOnCemeteryService {
     public PlaceOnCemetery updatePlaceOnCemetery(Long id, PlaceOnCemetery placeOnCemetery) {
         PlaceOnCemetery existingPlaceOnCemetery = getPlaceOnCemetery(id);
         existingPlaceOnCemetery.setCemeteryName(placeOnCemetery.getCemeteryName());
-        existingPlaceOnCemetery.setNumber(placeOnCemetery.getNumber());
         existingPlaceOnCemetery.setAddress(placeOnCemetery.getAddress());
         return placeOnCemeteryRepository.save(existingPlaceOnCemetery);
     }

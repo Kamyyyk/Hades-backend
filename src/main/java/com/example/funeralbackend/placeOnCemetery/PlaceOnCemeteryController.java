@@ -32,4 +32,9 @@ public class PlaceOnCemeteryController {
     public PlaceOnCemetery editPlaceOnCemeteryById(@PathVariable Long id, @RequestBody PlaceOnCemetery placeOnCemetery) {
         return placeOnCemeteryService.updatePlaceOnCemetery(id, placeOnCemetery);
     }
+
+    @DeleteMapping("/{id}")
+    public void deleteCemeteryPlaceById(@PathVariable Long id) {
+        placeOnCemeteryService.deletePlaceOnCemetery(id);
+    }
 }
