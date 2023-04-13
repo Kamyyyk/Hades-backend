@@ -1,7 +1,6 @@
 package com.example.funeralbackend.caravan;
 
-import com.example.funeralbackend.caravan.errors.CaravanNotFoundException;
-import com.example.funeralbackend.driver.DriverRepository;
+import com.example.funeralbackend.errors.NotFoundException;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
@@ -21,7 +20,7 @@ public class CaravanService {
     }
 
     public Caravan getCaravan(Long id) {
-        return caravanRepository.findById(id).orElseThrow(() -> new CaravanNotFoundException("cannot found caravan with id: " + id));
+        return caravanRepository.findById(id).orElseThrow(() -> new NotFoundException("cannot found caravan with id: " + id));
     }
 
     public Caravan createCaravan(Caravan caravan) {

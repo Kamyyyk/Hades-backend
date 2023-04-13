@@ -2,7 +2,7 @@ package com.example.funeralbackend.funeral;
 
 import com.example.funeralbackend.container.Container;
 import com.example.funeralbackend.morgue.Morgue;
-import com.example.funeralbackend.placeOnCementary.PlaceOnCemetery;
+import com.example.funeralbackend.placeOnCemetery.PlaceOnCemetery;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

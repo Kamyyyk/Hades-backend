@@ -1,6 +1,4 @@
 package com.example.funeralbackend.morgue;
-
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,7 +22,7 @@ public class MorgueController {
     }
 
     @PostMapping
-    public Morgue createDeceased(@Validated @RequestBody Morgue morgue) {
+    public Morgue createDeceased(@RequestBody Morgue morgue) {
         return morgueService.createDeceased(morgue);
     }
 

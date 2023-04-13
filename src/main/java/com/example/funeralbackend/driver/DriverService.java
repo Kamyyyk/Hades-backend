@@ -1,6 +1,6 @@
 package com.example.funeralbackend.driver;
 
-import com.example.funeralbackend.driver.errors.DriverNotFoundException;
+import com.example.funeralbackend.errors.NotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
@@ -22,7 +22,7 @@ public class DriverService {
     }
 
     public Driver getDriver(Long id) {
-        return driverRepository.findById(id).orElseThrow(() -> new DriverNotFoundException("Cannot find driver with id: " + id));
+        return driverRepository.findById(id).orElseThrow(() -> new NotFoundException("Cannot find driver with id: " + id));
     }
 
     public Driver updateDriver(Long id, Driver driver) {
