@@ -21,6 +21,7 @@ public class Container {
     @Column(nullable = false)
     private String containerName;
     @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
     private containerType containerType;
 
     @Override
