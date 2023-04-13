@@ -24,7 +24,8 @@ public class Funeral {
     @Column(nullable = false)
     private Date funeralDate;
     @Column(nullable = false)
-    private Status status;
+    @Enumerated(EnumType.STRING)
+    private StatusType status;
     @Column(nullable = false)
     private double price;
 
@@ -37,8 +38,6 @@ public class Funeral {
     private Container container;
 
     @ManyToOne
-    @JoinColumn(name = "place_on_cemetary_id")
+    @JoinColumn(name = "place_on_cemetery_id")
     private PlaceOnCemetery placeOnCemetery;
-
-
 }
