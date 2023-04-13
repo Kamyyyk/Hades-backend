@@ -2,7 +2,7 @@ package com.example.funeralbackend.funeral;
 
 import com.example.funeralbackend.container.Container;
 import com.example.funeralbackend.morgue.Morgue;
-import com.example.funeralbackend.placeOnCementary.PlaceOnCemetery;
+import com.example.funeralbackend.placeOnCemetery.PlaceOnCemetery;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -24,7 +24,8 @@ public class Funeral {
     @Column(nullable = false)
     private Date funeralDate;
     @Column(nullable = false)
-    private Status status;
+    @Enumerated(EnumType.STRING)
+    private StatusType status;
     @Column(nullable = false)
     private double price;
 
@@ -37,8 +38,6 @@ public class Funeral {
     private Container container;
 
     @ManyToOne
-    @JoinColumn(name = "place_on_cemetary_id")
+    @JoinColumn(name = "place_on_cemetery_id")
     private PlaceOnCemetery placeOnCemetery;
-
-
 }

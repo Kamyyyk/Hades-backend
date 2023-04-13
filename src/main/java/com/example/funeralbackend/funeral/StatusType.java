@@ -1,6 +1,6 @@
 package com.example.funeralbackend.funeral;
 
-public enum Status {
+public enum StatusType {
     OPEN,
     FINISHED,
     IN_PROGRESS
