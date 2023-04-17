@@ -11,7 +11,6 @@ import java.util.Objects;
 @AllArgsConstructor
 @Setter
 @ToString
-@RequiredArgsConstructor
 @Getter
 @Builder
 @Table(name = "_user")
