@@ -20,6 +20,7 @@ public class Container {
     private long id;
     @Column(nullable = false)
     private String containerName;
+    private String descriptionPlate;
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private containerType containerType;
