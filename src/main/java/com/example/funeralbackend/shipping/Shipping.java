@@ -19,7 +19,8 @@ public class Shipping {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-
+    @Column(nullable = false)
+    private String name;
     @ManyToOne
     @JoinColumn(name = "caravan_id")
     private Caravan caravan;

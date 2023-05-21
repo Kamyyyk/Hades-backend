@@ -35,6 +35,7 @@ public class FuneralService {
         existingFuneral.setMorgue(funeral.getMorgue());
         existingFuneral.setStatus(funeral.getStatus());
         existingFuneral.setPlaceOnCemetery(funeral.getPlaceOnCemetery());
+        existingFuneral.setShipping(funeral.getShipping());
         return funeralRepository.save(existingFuneral);
     }
 

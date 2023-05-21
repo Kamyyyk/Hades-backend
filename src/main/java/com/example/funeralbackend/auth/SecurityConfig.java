@@ -9,10 +9,12 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
 @EnableMethodSecurity
-public class SecurityConfig {
+public class SecurityConfig implements WebMvcConfigurer {
 
     @Bean
     public static PasswordEncoder passwordEncoder() {
@@ -24,15 +26,20 @@ public class SecurityConfig {
         return configuration.getAuthenticationManager();
     }
 
+    @Override
+    public void addCorsMappings(CorsRegistry registry) {
+        registry.addMapping("/**").allowedMethods("*");
+    }
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
         http
                 .csrf().disable()
-                .cors().and()
-                .authorizeHttpRequests((auth) -> auth
-                        .requestMatchers("/api/auth/**").permitAll()
-                        .anyRequest().authenticated()).httpBasic(Customizer.withDefaults());
+                .cors();
+//                .authorizeHttpRequests((auth) -> auth
+//                        .requestMatchers("/api/auth/**").permitAll());
+//                        .anyRequest().authenticated()).httpBasic(Customizer.withDefaults());
         return http.build();
     }
 }

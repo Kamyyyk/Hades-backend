@@ -3,12 +3,14 @@ package com.example.funeralbackend.funeral;
 import com.example.funeralbackend.container.Container;
 import com.example.funeralbackend.morgue.Morgue;
 import com.example.funeralbackend.placeOnCemetery.PlaceOnCemetery;
+import com.example.funeralbackend.shipping.Shipping;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -22,7 +24,7 @@ public class Funeral {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column(nullable = false)
-    private Date funeralDate;
+    private LocalDate funeralDate;
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private StatusType status;
@@ -40,4 +42,8 @@ public class Funeral {
     @ManyToOne
     @JoinColumn(name = "place_on_cemetery_id")
     private PlaceOnCemetery placeOnCemetery;
+
+    @ManyToOne
+    @JoinColumn(name= "shipping_id")
+    private Shipping shipping;
 }
