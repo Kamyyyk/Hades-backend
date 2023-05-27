@@ -32,6 +32,7 @@ public class CaravanService {
         existingCaravan.setBrand(caravan.getBrand());
         existingCaravan.setModel(caravan.getModel());
         existingCaravan.setDriver(caravan.getDriver());
+        existingCaravan.setLicenceNumber(caravan.getLicenceNumber());
         return caravanRepository.save(existingCaravan);
     }
 

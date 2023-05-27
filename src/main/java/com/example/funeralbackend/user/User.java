@@ -1,5 +1,6 @@
 package com.example.funeralbackend.user;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.Hibernate;
@@ -13,6 +14,7 @@ import java.util.Objects;
 @ToString
 @Getter
 @Builder
+@JsonInclude(JsonInclude.Include.NON_NULL)
 @Table(name = "_user")
 public class User {
     @Id
