@@ -22,6 +22,27 @@ public class UserService implements UserDetailsService {
         this.passwordEncoder = passwordEncoder;
     }
 
+    public List<User> getAllUsers() {
+        return userRepository.findAll();
+    }
+
+    public User getUser(Long id) {
+        return userRepository.findById(id).orElseThrow(() -> new NotFoundException("cannot find user with id: " + id));
+    }
+
+    public User editUser(Long id, User user) {
+        User existingUser = getUser(id);
+        existingUser.setUsername(user.getUsername());
+        existingUser.setPassword(user.getPassword());
+        existingUser.setRole(user.getRole());
+        return userRepository.save(existingUser);
+    }
+
+    public void deleteUser(Long id) {
+        User existingUser = getUser(id);
+        userRepository.delete(existingUser);
+    }
+
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -33,7 +54,7 @@ public class UserService implements UserDetailsService {
     }
 
 
-    public User registeeUser(User user) {
+    public User registerUser(User user) {
         User newUser = new User();
         newUser.setUsername(user.getUsername());
         newUser.setPassword(passwordEncoder.encode(user.getPassword()));
