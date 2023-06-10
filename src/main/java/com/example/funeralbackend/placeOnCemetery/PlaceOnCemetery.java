@@ -22,6 +22,10 @@ public class PlaceOnCemetery {
     private String cemeteryName;
     @Column(nullable = false)
     private String address;
+    @Column(nullable = false)
+    private double price;
+    @Column(nullable = false)
+    private boolean isCemeteryPlaceOccupied;
 
     @Override
     public boolean equals(Object o) {

@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.time.LocalDate;
 import java.util.Objects;
 
 @Entity
@@ -20,7 +21,10 @@ public class DeceasedDocumentation {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column(nullable = false)
-    private String name;
+    private String documentationNumber;
+    @Column(nullable = false)
+    private LocalDate documentationCreateDate;
+    private LocalDate documentationEditDate;
 
     @OneToOne
     @JoinColumn(name = "deceased_id")
@@ -31,11 +35,11 @@ public class DeceasedDocumentation {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         DeceasedDocumentation that = (DeceasedDocumentation) o;
-        return id == that.id && Objects.equals(name, that.name) && Objects.equals(morgue, that.morgue);
+        return id == that.id && Objects.equals(documentationNumber, that.documentationNumber) && Objects.equals(morgue, that.morgue);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, morgue);
+        return Objects.hash(id, documentationNumber, morgue);
     }
 }

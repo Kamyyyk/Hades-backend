@@ -29,8 +29,9 @@ public class DeceasedDocumentationService {
 
     public DeceasedDocumentation editDeceasedDocumentation(Long id, DeceasedDocumentation deceasedDocumentation) {
         DeceasedDocumentation existedDeceasedDocumentation = getDeceasedDocumentation(id);
-        existedDeceasedDocumentation.setName(deceasedDocumentation.getName());
+        existedDeceasedDocumentation.setDocumentationNumber(deceasedDocumentation.getDocumentationNumber());
         existedDeceasedDocumentation.setMorgue(deceasedDocumentation.getMorgue());
+        existedDeceasedDocumentation.setDocumentationCreateDate(deceasedDocumentation.getDocumentationCreateDate());
         return deceasedDocumentationRepository.save(existedDeceasedDocumentation);
     }
 

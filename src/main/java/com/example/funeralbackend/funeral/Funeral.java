@@ -11,7 +11,6 @@ import lombok.Setter;
 import lombok.ToString;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 @Entity
 @Table
@@ -28,8 +27,10 @@ public class Funeral {
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private StatusType status;
-    @Column(nullable = false)
     private double price;
+    @Enumerated(EnumType.STRING)
+    private FuneralType funeralType;
+    private boolean reportOrder;
 
     @ManyToOne
     @JoinColumn(name = "deceased_id")

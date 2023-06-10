@@ -23,6 +23,8 @@ public class Container {
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private containerType containerType;
+    private String descriptionPlate;
+    private double price;
 
     @Override
     public boolean equals(Object o) {

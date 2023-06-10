@@ -24,6 +24,11 @@ public class Shipping {
     @ManyToOne
     @JoinColumn(name = "caravan_id")
     private Caravan caravan;
+    @Column(nullable = false)
+    private double price;
+    @Column(nullable = false)
+    private int distance;
+
 
     @Override
     public boolean equals(Object o) {
