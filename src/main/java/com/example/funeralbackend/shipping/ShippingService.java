@@ -30,6 +30,8 @@ public class ShippingService {
 
     public Shipping updateShipping(Long id, Shipping shipping) {
         Shipping existedShipping = getShipping(id);
+        existedShipping.setDistance(shipping.getDistance());
+        existedShipping.setPrice(shipping.getPrice());
         existedShipping.setName(shipping.getName());
         existedShipping.setCaravan(shipping.getCaravan());
         return shippingRepository.save(existedShipping);

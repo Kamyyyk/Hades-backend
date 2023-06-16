@@ -29,6 +29,7 @@ public class ContainerService {
 
     public Container editContainer(Long id, Container container) {
         Container existedContainer = getContainer(id);
+        existedContainer.setDescriptionPlate(container.getDescriptionPlate());
         existedContainer.setContainerName(container.getContainerName());
         existedContainer.setContainerType(container.getContainerType());
         return containerRepository.save(existedContainer);
