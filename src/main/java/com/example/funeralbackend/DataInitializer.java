@@ -2,7 +2,6 @@ package com.example.funeralbackend;
 
 import com.example.funeralbackend.auth.AuthController;
 import com.example.funeralbackend.user.User;
-import com.example.funeralbackend.user.UserRepository;
 import com.example.funeralbackend.user.UserType;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
