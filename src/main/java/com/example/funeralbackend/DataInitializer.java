@@ -1,5 +1,6 @@
 package com.example.funeralbackend;
 
+import com.example.funeralbackend.auth.AuthController;
 import com.example.funeralbackend.user.User;
 import com.example.funeralbackend.user.UserRepository;
 import com.example.funeralbackend.user.UserType;
@@ -8,10 +9,10 @@ import org.springframework.stereotype.Component;
 @Component
 public class DataInitializer implements CommandLineRunner {
 
-    private final UserRepository userRepository;
+    private final AuthController authController;
 
-    public DataInitializer(UserRepository userRepository) {
-        this.userRepository = userRepository;
+    public DataInitializer(AuthController authController) {
+        this.authController = authController;
     }
 
     String[] usernames = {"administrator", "funeralhomeemployee", "funeralmorgueworker" };
@@ -25,7 +26,7 @@ public class DataInitializer implements CommandLineRunner {
             user.setUsername(usernames[i]);
             user.setPassword("Test123!");
             user.setRole(roles[i]);
-            userRepository.save(user);
+            authController.register(user);
         }
     }
 }
